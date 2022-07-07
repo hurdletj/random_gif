@@ -16,18 +16,17 @@ buttonEl.addEventListener("click", () => {
   const requestOptions = {
     method: "GET",
     redirect: "follow",
-  };
+                         };
 
-  fetch(
+  const response = await fetch(
     "http://api.giphy.com/v1/gifs/random?api_key=0VeHhpnQTWuUFaK58DmOErmtss9ZL5XR",
     requestOptions
-  )
-    .then((response) => response.json())
-    .then((result) => {
-      console.log(result);
-      console.log(result.data.images.original.url);
+    );
+  console.log(response);
+
+    const result = response.json());
+    
       imageURL = result.data.images.original.url;
       displayImage();
-    })
-    .catch((error) => console.log("error", error));
-});
+
+    });
